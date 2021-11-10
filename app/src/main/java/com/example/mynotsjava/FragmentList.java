@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 
 public class FragmentList extends Fragment {
+
 
 
 
@@ -37,6 +39,26 @@ public class FragmentList extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //находим кнопку с настройкамии и делаем ей клик листнер
+        Button button = view.findViewById(R.id.setting_button);
+                button.setOnClickListener(v -> {
+            FragmentSetting fragment = new FragmentSetting();
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
+        //находим кнопку с переключалкой и делаем ей клик листнер
+        Button button1 = view.findViewById(R.id.switch_button);
+        button1.setOnClickListener(v -> {
+            FragmentSvitsh fragment = new FragmentSvitsh();
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
 
         initView(view);
     }
@@ -44,6 +66,10 @@ public class FragmentList extends Fragment {
     private void initView(View view) {
         LinearLayout linearLayout = (LinearLayout) view;
         String[] notes = getResources().getStringArray(R.array.titleNotes);
+
+
+
+
 
         for (int i = 0; i < notes.length; i++) {
             TextView textView = new TextView(getContext());
@@ -85,7 +111,8 @@ public class FragmentList extends Fragment {
                 .commit();
 
     }
-    private Boolean isLand(){
+
+    private Boolean isLand() {
         return getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 }
