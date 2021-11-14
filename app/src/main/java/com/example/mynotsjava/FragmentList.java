@@ -39,41 +39,18 @@ public class FragmentList extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //находим кнопку с настройкамии и делаем ей клик листнер
-        Button button = view.findViewById(R.id.setting_button);
-                button.setOnClickListener(v -> {
-            FragmentSetting fragment = new FragmentSetting();
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.container, fragment)
-                    .addToBackStack(null)
-                    .commit();
-        });
-        //находим кнопку с переключалкой и делаем ей клик листнер
-        Button button1 = view.findViewById(R.id.switch_button);
-        button1.setOnClickListener(v -> {
-            FragmentSvitsh fragment = new FragmentSvitsh();
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.container, fragment)
-                    .addToBackStack(null)
-                    .commit();
-        });
+
 
         initView(view);
     }
-
+// создаем список новостей
     private void initView(View view) {
         LinearLayout linearLayout = (LinearLayout) view;
-        String[] notes = getResources().getStringArray(R.array.titleNotes);
-
-
-
-
+        String[] notes = getResources().getStringArray(R.array.titleNotes);// получаем текст из ресурсов
 
         for (int i = 0; i < notes.length; i++) {
-            TextView textView = new TextView(getContext());
-            textView.setText(notes[i]);
+            TextView textView = new TextView(getContext());//создаем вьюшку
+            textView.setText(notes[i]);// вставляем текст из списка новостей
             textView.setTextSize(30);
             final int position = i;
             textView.setOnClickListener(v -> {
@@ -83,7 +60,7 @@ public class FragmentList extends Fragment {
 
         }
     }
-
+// тут мы получаем в какой фрагмент отобразится наша новость
     private void showNotes(int position) {
         if (!isLand()) {
             showNotesPort(position);
@@ -91,7 +68,7 @@ public class FragmentList extends Fragment {
             showNotesLand(position);
         }
     }
-
+// для портретной ориентации
     private void showNotesPort(int position) {
         FragmentNots fragment = FragmentNots.newInstance(position);
         requireActivity().getSupportFragmentManager()
@@ -101,7 +78,7 @@ public class FragmentList extends Fragment {
                 .commit();
 
     }
-
+// для ландшафтной ориентации
     private void showNotesLand(int position) {
         FragmentNots fragment = FragmentNots.newInstance(position);
         requireActivity().getSupportFragmentManager()
@@ -111,7 +88,7 @@ public class FragmentList extends Fragment {
                 .commit();
 
     }
-
+// определяем ориентацию
     private Boolean isLand() {
         return getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }

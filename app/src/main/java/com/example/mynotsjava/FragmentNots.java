@@ -24,6 +24,7 @@ public class FragmentNots extends Fragment {
     }
 
     // второй паттерн програмирования за день ФАБРИЧНЫЙ МЕТОД
+    // тут мы передаем наш position во фрагмент(оч важно)
     public static FragmentNots newInstance(int position) {
         FragmentNots fragment = new FragmentNots();
         Bundle args = new Bundle();
