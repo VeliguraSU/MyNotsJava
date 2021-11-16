@@ -6,9 +6,11 @@
     tools:context=".FragmentDescription"
     >
     <TextView
+        android:id="@+id/tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/textDescription"
-        android:textSize="30sp"/>
+        android:textSize="30sp"   />
+
+
 
 </FrameLayout>

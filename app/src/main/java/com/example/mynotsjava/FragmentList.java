@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class FragmentList extends Fragment {
@@ -54,6 +57,9 @@ public class FragmentList extends Fragment {
             textView.setTextSize(30);
             final int position = i;
             textView.setOnClickListener(v -> {
+                // пишем тост(вылезет сообщенька)
+                Toast.makeText(getContext(),"Что-то приозошло черезвычайно важное,но повлиять на это ты не можешь. " +
+                        "Так, что всеравно",Toast.LENGTH_LONG).show();
                 showNotes(position);
             });
             linearLayout.addView(textView);

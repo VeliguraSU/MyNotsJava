@@ -1,23 +1,21 @@
 package com.example.mynotsjava;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
 
 public class FragmentDescription extends Fragment {
-
 
 
     public FragmentDescription() {
@@ -39,6 +37,11 @@ public class FragmentDescription extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-
+        TextView tv = view.findViewById(R.id.tv_description);
+        tv.setText("Добрый день. Это моё учебное приложение. конкретно тут я учусь делать меню");
+        //снекбар это плашка с сообщением. пока кнопку не нажмешь не исчезнет
+        Snackbar bar = Snackbar.make(view, "купи слона!", Snackbar.LENGTH_INDEFINITE);
+        bar.setAction("Ок", v1 -> bar.dismiss());
+        bar.show();
     }
 }
