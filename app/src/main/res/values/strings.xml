@@ -1,6 +1,26 @@
 <resources>
     <string name="app_name">MyNotsJava</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title1">новость 1</string>
+    <string name="title2">новость 2</string>
+    <string name="title3">новость 3</string>
+    <string name="title4">новость 4</string>
+    <string name="title5">новость 5</string>
+    <string name="title6">новость 6</string>
+    <string name="title7">новость 7</string>
+    <string name="title8">новость 8</string>
+    <string name="title9">новость 9</string>
+
+    <string name="text1">текст новости1</string>
+    <string name="text2">текст новости1</string>
+    <string name="text3">текст новости1</string>
+    <string name="text4">текст новости1</string>
+    <string name="text5">текст новости1</string>
+    <string name="text6">текст новости1</string>
+    <string name="text7">текст новости1</string>
+    <string name="text8">текст новости1</string>
+    <string name="text9">текст новости1</string>
+
 
 
 

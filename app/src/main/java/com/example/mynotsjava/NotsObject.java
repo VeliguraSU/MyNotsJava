@@ -13,4 +13,30 @@ public class NotsObject {
     }
 
 
+    public NotsObject(String string, String string1) {
+    }
+
+    public static String getNoteTitle() {
+        return noteTitle;
+    }
+
+    public static void setNoteTitle(String noteTitle) {
+        NotsObject.noteTitle = noteTitle;
+    }
+
+    public static String getNoteDescription() {
+        return noteDescription;
+    }
+
+    public static void setNoteDescription(String noteDescription) {
+        NotsObject.noteDescription = noteDescription;
+    }
+
+    public static String getTime() {
+        return time;
+    }
+
+    public static void setTime(String time) {
+        NotsObject.time = time;
+    }
 }

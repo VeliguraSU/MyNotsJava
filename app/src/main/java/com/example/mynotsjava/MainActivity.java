@@ -9,7 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {// стартовыый фрагмент
@@ -21,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.container, fragmentList)
                 .commit();
+
+
+
 
     }
 
@@ -39,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
+
+
     }
 
     @Override
@@ -85,21 +95,21 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_exit) { //кнопка выход иz приложения
             // а вот еще один паттекрн. билдер добавляет в конструктор параметры.
-                new AlertDialog.Builder(this).setMessage("давай попробуем еще раз")
-                        .setTitle("Выбор между жизнью и смертью")
-                        .setPositiveButton("ok",(dialog, which) -> {
-                            FragmentList fragmentList = new FragmentList();
-                            getSupportFragmentManager()
-                                    .beginTransaction()
-                                    .replace(R.id.container, fragmentList)
-                                    .addToBackStack(null)
-                                    .commit();
-                        }).setNegativeButton("неа",(dialog, which) -> {
-                    Toast.makeText(this,"эх",Toast.LENGTH_LONG).show();
-                    finish();
-                }).show();
+            new AlertDialog.Builder(this).setMessage("давай попробуем еще раз")
+                    .setTitle("Выбор между жизнью и смертью")
+                    .setPositiveButton("ok", (dialog, which) -> {
+                        FragmentList fragmentList = new FragmentList();
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.container, fragmentList)
+                                .addToBackStack(null)
+                                .commit();
+                    }).setNegativeButton("неа", (dialog, which) -> {
+                Toast.makeText(this, "эх", Toast.LENGTH_LONG).show();
+                finish();
+            }).show();
 
-                   }
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -109,15 +119,15 @@ public class MainActivity extends AppCompatActivity {
 // хз как но хочу довить сообщение на выход
         new AlertDialog.Builder(this).setMessage("давай попробуем еще раз")
                 .setTitle("Выбор между жизнью и смертью")
-                .setPositiveButton("ok",(dialog, which) -> {
+                .setPositiveButton("ok", (dialog, which) -> {
                     FragmentList fragmentList = new FragmentList();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.container, fragmentList)
                             .addToBackStack(null)
                             .commit();
-                }).setNegativeButton("неа",(dialog, which) -> {
-            Toast.makeText(this,"эх",Toast.LENGTH_LONG).show();
+                }).setNegativeButton("неа", (dialog, which) -> {
+            Toast.makeText(this, "эх", Toast.LENGTH_LONG).show();
             finish();
         }).show();
     }
