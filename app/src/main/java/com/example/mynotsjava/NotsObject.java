@@ -6,13 +6,24 @@ public class NotsObject {
     private static String noteDescription = "описание новости";
     private static String time = "время заполнения";
 
-    NotsObject(String noteTitle, String noteDescription, String time) {
+    NotsObject(String noteTitle, String noteDescription) {
         this.noteTitle = noteTitle;
         this.noteDescription = noteDescription;
-        this.time = time;
     }
 
-    NotsObject notsObject1 = new NotsObject("новость1", "текст новости1", "времия создания новости1");
-    NotsObject notsObject2 = new NotsObject("новость2", "текст новости2", "времия создания новости2");
-    NotsObject notsObject3 = new NotsObject("новость3", "текст новости3", "времия создания новости3");
+
+
+
+    public  String getNoteTitle() {
+        return noteTitle;
+    }
+
+
+    public static String getNoteDescription() {
+        return noteDescription;
+    }
+
+    public static String getTime() {
+        return time;
+    }
 }

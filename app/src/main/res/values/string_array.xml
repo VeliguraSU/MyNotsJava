@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="TitleNotes">
-        <item>новость1</item>
-        <item>новость2</item>
-        <item>новость3</item>
-        <item>новость4</item>
-        <item>новость5</item>
-    </string-array>
+
+        <string-array name="titleNotes">
+            <item>новость1</item>
+            <item>новость2</item>
+            <item>новость3</item>
+            <item>новость4</item>
+            <item>новость5</item>
+        </string-array>
+
+        <string-array name="textNotes">
+            <item>текст новости1</item>
+            <item>текст новости2</item>
+            <item>текст новости3</item>
+            <item>текст новости4</item>
+            <item>текст новости5</item>
+        </string-array>
+
+    </resources>
 
 
-</resources>
+
+

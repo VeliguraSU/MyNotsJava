@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_description"
+        android:title="О приложении" />
+    <item
+        android:id="@+id/action_seting"
+        android:title="настройки" />
+    <item
+        android:id="@+id/action_switch"
+        android:title="изменение темы" />
+    <item
+        android:id="@+id/action_list"
+        android:title="список" />
+    <item
+        android:id="@+id/action_exit"
+        android:title="выход" />
+
+
+</menu>
