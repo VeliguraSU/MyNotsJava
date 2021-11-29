@@ -9,14 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mynotsjava.NotsObject;
-import com.example.mynotsjava.R;
-
 import java.util.List;
 
 class NotObjectAdapter extends RecyclerView.Adapter<NotObjectAdapter.NotViewHolder> {
     private List<NotsObject> notsObjectList;
-
+    private OnNotesClickListner ClickListner;
     public NotObjectAdapter(List<NotsObject> notsObjectList) {
         this.notsObjectList = notsObjectList;
     }
@@ -43,9 +40,16 @@ class NotObjectAdapter extends RecyclerView.Adapter<NotObjectAdapter.NotViewHold
         return notsObjectList.size();
     }
 
-    static class NotViewHolder extends RecyclerView.ViewHolder {
+    public void setClickListner(OnNotesClickListner clickListner) {
+        ClickListner = clickListner;
+    }
 
-        TextView textView = itemView.findViewById(R.id.text_view);
+
+    class NotViewHolder extends RecyclerView.ViewHolder {
+
+        TextView textView = itemView.findViewById(R.id.ListTITLE);
+//        TextView tv2 = itemView.findViewById(R.id.ListNOT);
+        TextView tv3 = itemView.findViewById(R.id.ListTIME);
 
         public NotViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);
@@ -53,6 +57,18 @@ class NotObjectAdapter extends RecyclerView.Adapter<NotObjectAdapter.NotViewHold
 
         void bind(NotsObject notsObject) {
             textView.setText(notsObject.getNoteTitle());
+//            tv2.setText(notsObject.getNoteDescription());
+            tv3.setText(notsObject.getNoteTime());
+            textView.setOnClickListener(v -> {
+                if(ClickListner!=null){
+                    ClickListner.OnNoteClick(v,getAdapterPosition());
+                }
+            });
+        }
+    }
+
+    interface OnNotesClickListner {
+        default void OnNoteClick(View view, int position){
 
         }
     }

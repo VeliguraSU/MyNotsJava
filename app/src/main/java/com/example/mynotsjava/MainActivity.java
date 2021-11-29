@@ -3,14 +3,19 @@ package com.example.mynotsjava;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +25,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {// стартовыый фрагмент
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Date currentDate = new Date();
+// Форматирование времени как "день.месяц.год"
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        String dateText = dateFormat.format(currentDate);
+// Форматирование времени как "часы:минуты:секунды"
+        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        String timeText = timeFormat.format(currentDate);
+
+
+
 
         FragmentList fragmentList = new FragmentList();
         getSupportFragmentManager()

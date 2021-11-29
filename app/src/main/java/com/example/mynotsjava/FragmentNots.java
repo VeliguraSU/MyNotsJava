@@ -1,6 +1,7 @@
 package com.example.mynotsjava;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ public class FragmentNots extends Fragment {
 
 
     private static final String ARG_POSITION = "poz";
-    private int position = -1;
+    private NotsObject notsObject;
 
     public FragmentNots() {
         // Required empty public constructor
@@ -25,10 +26,10 @@ public class FragmentNots extends Fragment {
 
     // второй паттерн програмирования за день ФАБРИЧНЫЙ МЕТОД
     // тут мы передаем наш position во фрагмент(оч важно)
-    public static FragmentNots newInstance(int position) {
+    public static FragmentNots newInstance(@NonNull NotsObject notsObject) {
         FragmentNots fragment = new FragmentNots();
         Bundle args = new Bundle();
-        args.putInt(ARG_POSITION, position);
+        args.putParcelable(ARG_POSITION, notsObject);
         fragment.setArguments(args);
         return fragment;
     }
@@ -37,7 +38,7 @@ public class FragmentNots extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            position = getArguments().getInt(ARG_POSITION);
+            notsObject = getArguments().getParcelable(ARG_POSITION);
         }
 
     }
@@ -61,11 +62,11 @@ public class FragmentNots extends Fragment {
         TextView tv = view.findViewById(R.id.Title);
         TextView tv1 = view.findViewById(R.id.Notes);
         TextView tv2 = view.findViewById(R.id.time);
-
-        tv.setText(title[position]);
-        tv1.setText(notes[position]);
-        tv2.setText("12:00");
-
+if(notsObject!=null) {
+    tv.setText(notsObject.getNoteTitle());
+    tv1.setText(notsObject.getNoteDescription());
+    tv2.setText(notsObject.getNoteTime());
+}
 
     }
 
